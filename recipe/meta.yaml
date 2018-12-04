@@ -1,10 +1,10 @@
 {% set provider = "Icinga2" %}
-{% set version = "0.1.1" %}
+{% set version = "0.2.0" %}
 
 {% set name = "terraform-provider-" + provider.lower() %}
 {% set x4_plugin = name + '_v' + version + "_x4" %}
 
-{% set sha256 = "26c1915977ed8faf383174f6e081d5e1e0b7cf46a01bcbd9a605ae26b026c1c9" %}
+{% set sha256 = "9c2411fedee61a12369e3086a2b7ebdd026e838f6c4ce6cb94e786df057bb281" %}
 {% set sha256_win64 = "45c6ba439add84801d1a82cf62feb02b76e77403a9f7a21ad367fdedc356b6e7" %}
 
 package:
@@ -20,7 +20,7 @@ source:
     sha256: {{ sha256_win64 }}  # [win64]
 
 build:
-  number: 1001
+  number: 1000
   script:
     - XCOPY src\github.com\terraform-providers\{{ name|lower }}\{{ x4_plugin }}.exe %LIBRARY_BIN%  # [win]
 
