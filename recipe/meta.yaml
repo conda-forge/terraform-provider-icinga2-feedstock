@@ -1,6 +1,6 @@
 {% set provider = "Icinga2" %}
 {% set goname = "github.com/terraform-providers/terraform-provider-"+provider.lower() %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 {% set name = goname.split('/')[-1] %}
 {% set pkg_src = ('gopath/src/'+goname).replace("/",os.sep) %}
@@ -12,13 +12,13 @@ package:
   version: {{ version }}
 
 source:
-  - folder:  {{ pkg_src }}
+  - folder: {{ pkg_src }}
     url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-    sha256: 39d1b395dce25c301134b325c9a4b883ba1f9a0ae0b7d24e908e99252cedbbde
+    sha256: 8bbe31764c5a59df838f5803f552e2eab63cf661407180be4eb638e40f50fb86
 
 
 build:
-  number: 1000
+  number: 0
   script:
     - pushd {{ pkg_src }}
     - go build -v -o {{ target_gobin }}{{ x4_plugin }}{{ target_goexe }}
